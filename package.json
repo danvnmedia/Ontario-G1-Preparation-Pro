@@ -1,0 +1,31 @@
+{
+  "name": "ontario-g1-preparation-pro",
+  "version": "1.0.0",
+  "description": "A comprehensive web application to help prepare for the Ontario G1 driving test",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx http-server public -p 3000 -o",
+    "dev": "npx http-server public -p 3000",
+    "build": "echo 'Build complete - static site ready for deployment'",
+    "test": "echo 'Tests pending implementation'"
+  },
+  "keywords": [
+    "ontario",
+    "g1",
+    "driving-test",
+    "practice-quiz",
+    "study-guide",
+    "road-test",
+    "drivers-license"
+  ],
+  "author": "Dan VN Media",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/danvnmedia/Ontario-G1-Preparation-Pro.git"
+  },
+  "homepage": "https://g1test.dan.ai.vn/",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}

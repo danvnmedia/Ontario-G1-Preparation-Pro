@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ontario G1 Preparation Pro - Practice quizzes and study materials for the Ontario G1 driving test">
+    <meta name="keywords" content="Ontario, G1, driving test, practice quiz, road signs, traffic rules">
+    <title>Ontario G1 Preparation Pro</title>
+    <link rel="stylesheet" href="../src/css/styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <h1>🚗 Ontario G1 Prep Pro</h1>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#practice" class="nav-link">Practice Quiz</a></li>
+                    <li><a href="#study" class="nav-link">Study Guide</a></li>
+                    <li><a href="#signs" class="nav-link">Road Signs</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h2>Ace Your Ontario G1 Test</h2>
+                    <p>Master the Ontario driver's test with our comprehensive practice quizzes and study materials</p>
+                    <div class="cta-buttons">
+                        <button class="btn btn-primary" onclick="startQuiz()">Start Practice Quiz</button>
+                        <button class="btn btn-secondary" onclick="scrollToSection('study')">Study Materials</button>
+                    </div>
+                </div>
+                <div class="stats">
+                    <div class="stat-card">
+                        <h3>500+</h3>
+                        <p>Practice Questions</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>100+</h3>
+                        <p>Road Signs</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Free</h3>
+                        <p>Always Free</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Practice Quiz Section -->
+        <section id="practice" class="practice-section">
+            <div class="container">
+                <h2>Practice Quiz</h2>
+                <div class="quiz-options">
+                    <div class="quiz-card">
+                        <h3>Quick Quiz</h3>
+                        <p>20 random questions</p>
+                        <button class="btn btn-primary" onclick="startQuiz('quick')">Start</button>
+                    </div>
+                    <div class="quiz-card">
+                        <h3>Full Practice Test</h3>
+                        <p>40 questions - Simulates real test</p>
+                        <button class="btn btn-primary" onclick="startQuiz('full')">Start</button>
+                    </div>
+                    <div class="quiz-card">
+                        <h3>Road Signs Only</h3>
+                        <p>Focus on traffic signs</p>
+                        <button class="btn btn-primary" onclick="startQuiz('signs')">Start</button>
+                    </div>
+                    <div class="quiz-card">
+                        <h3>Rules & Regulations</h3>
+                        <p>Traffic laws and rules</p>
+                        <button class="btn btn-primary" onclick="startQuiz('rules')">Start</button>
+                    </div>
+                </div>
+                
+                <!-- Quiz Container -->
+                <div id="quiz-container" class="quiz-container hidden">
+                    <div class="quiz-header">
+                        <div class="quiz-progress">
+                            <span id="current-question">1</span> / <span id="total-questions">20</span>
+                        </div>
+                        <div class="quiz-score">
+                            Score: <span id="score">0</span>
+                        </div>
+                    </div>
+                    <div class="question-container">
+                        <h3 id="question-text"></h3>
+                        <div id="options-container" class="options-container"></div>
+                    </div>
+                    <div class="quiz-controls">
+                        <button id="prev-btn" class="btn btn-secondary" onclick="previousQuestion()">Previous</button>
+                        <button id="next-btn" class="btn btn-primary" onclick="nextQuestion()">Next</button>
+                        <button id="submit-btn" class="btn btn-success hidden" onclick="submitQuiz()">Submit Quiz</button>
+                    </div>
+                    <div id="result-container" class="result-container hidden">
+                        <h3>Quiz Results</h3>
+                        <div id="result-details"></div>
+                        <button class="btn btn-primary" onclick="resetQuiz()">Try Another Quiz</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Study Guide Section -->
+        <section id="study" class="study-section">
+            <div class="container">
+                <h2>Study Materials</h2>
+                <div class="study-grid">
+                    <div class="study-card">
+                        <h3>📋 Traffic Rules</h3>
+                        <p>Learn Ontario traffic laws and regulations</p>
+                        <button class="btn btn-secondary" onclick="openStudyGuide('rules')">Study Now</button>
+                    </div>
+                    <div class="study-card">
+                        <h3>🚦 Road Signs</h3>
+                        <p>Master all Ontario road signs</p>
+                        <button class="btn btn-secondary" onclick="openStudyGuide('signs')">Study Now</button>
+                    </div>
+                    <div class="study-card">
+                        <h3>⚠️ Safety Tips</h3>
+                        <p>Safe driving practices and tips</p>
+                        <button class="btn btn-secondary" onclick="openStudyGuide('safety')">Study Now</button>
+                    </div>
+                    <div class="study-card">
+                        <h3>🚨 Emergency Procedures</h3>
+                        <p>What to do in emergencies</p>
+                        <button class="btn btn-secondary" onclick="openStudyGuide('emergency')">Study Now</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Road Signs Reference Section -->
+        <section id="signs" class="signs-section">
+            <div class="container">
+                <h2>Road Signs Reference</h2>
+                <div class="signs-categories">
+                    <button class="category-btn active" onclick="filterSigns('all')">All Signs</button>
+                    <button class="category-btn" onclick="filterSigns('warning')">Warning</button>
+                    <button class="category-btn" onclick="filterSigns('regulatory')">Regulatory</button>
+                    <button class="category-btn" onclick="filterSigns('information')">Information</button>
+                </div>
+                <div id="signs-grid" class="signs-grid">
+                    <!-- Signs will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <h2>About Ontario G1 Preparation Pro</h2>
+                <div class="about-content">
+                    <p>Ontario G1 Preparation Pro is a comprehensive, free study platform designed to help you pass your Ontario G1 driving test on the first try.</p>
+                    
+                    <h3>Features</h3>
+                    <ul>
+                        <li>✅ 500+ practice questions based on the official Ontario Driver's Handbook</li>
+                        <li>✅ Complete road signs reference with descriptions</li>
+                        <li>✅ Detailed study guides for all test topics</li>
+                        <li>✅ Instant feedback and explanations</li>
+                        <li>✅ Mobile-friendly design - study anywhere</li>
+                        <li>✅ Track your progress and improvement</li>
+                        <li>✅ 100% Free - no hidden fees</li>
+                    </ul>
+
+                    <h3>Official Resources</h3>
+                    <p>While we provide comprehensive practice materials, we recommend also reviewing:</p>
+                    <ul>
+                        <li><a href="https://www.ontario.ca/document/official-mto-drivers-handbook" target="_blank">Official Ontario Driver's Handbook</a></li>
+                        <li><a href="https://www.ontario.ca/page/ministry-transportation" target="_blank">Ministry of Transportation Ontario</a></li>
+                        <li><a href="https://drivetest.ca/" target="_blank">DriveTest</a></li>
+                    </ul>
+
+                    <div class="disclaimer">
+                        <strong>Disclaimer:</strong> This is an independent study aid and is not affiliated with the Ontario Ministry of Transportation. Always refer to official resources for the most current information.
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Ontario G1 Prep Pro</h4>
+                    <p>Your trusted resource for G1 test preparation</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#practice">Practice Quiz</a></li>
+                        <li><a href="#study">Study Guide</a></li>
+                        <li><a href="#signs">Road Signs</a></li>
+                        <li><a href="#about">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="https://www.ontario.ca/document/official-mto-drivers-handbook" target="_blank">Official Handbook</a></li>
+                        <li><a href="https://drivetest.ca/" target="_blank">DriveTest</a></li>
+                        <li><a href="https://github.com/danvnmedia/Ontario-G1-Preparation-Pro" target="_blank">GitHub</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Dan VN Media</p>
+                    <p><a href="https://github.com/danvnmedia">GitHub</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Ontario G1 Preparation Pro. All rights reserved. | MIT License</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../src/js/app.js"></script>
+</body>
+</html>
