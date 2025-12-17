@@ -61,12 +61,10 @@ http://localhost:3000
 Ontario-G1-Preparation-Pro/
 ├── public/              # Static files served by the web server
 │   ├── index.html      # Main HTML file
+│   ├── styles.css      # Main CSS file
+│   ├── app.js          # Main application logic
 │   └── images/         # Image assets (road signs, etc.)
-├── src/                # Source files
-│   ├── css/            # Stylesheets
-│   │   └── styles.css  # Main CSS file
-│   ├── js/             # JavaScript files
-│   │   └── app.js      # Main application logic
+├── src/                # Additional source files
 │   └── data/           # Data files
 │       └── questions-readme.md  # Question database documentation
 ├── docs/               # Documentation
@@ -81,16 +79,17 @@ Ontario-G1-Preparation-Pro/
 
 ### Making Changes
 
-1. Edit files in the `src/` directory for JavaScript and CSS changes
-2. Edit `public/index.html` for HTML structure changes
-3. Save your changes
-4. Refresh the browser to see updates
+1. Edit `public/app.js` for JavaScript changes
+2. Edit `public/styles.css` for CSS changes
+3. Edit `public/index.html` for HTML structure changes
+4. Save your changes
+5. Refresh the browser to see updates
 
 ### Adding Questions
 
 To add new practice questions:
 
-1. Open `src/js/app.js`
+1. Open `public/app.js`
 2. Find the `questionDatabase` object
 3. Add questions following the existing format:
    ```javascript
@@ -105,7 +104,7 @@ To add new practice questions:
 
 ### Customizing Styles
 
-1. Open `src/css/styles.css`
+1. Open `public/styles.css`
 2. Modify CSS variables in `:root` for quick theme changes:
    ```css
    :root {

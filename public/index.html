@@ -149,10 +149,10 @@
             <div class="container">
                 <h2>Road Signs Reference</h2>
                 <div class="signs-categories">
-                    <button class="category-btn active" onclick="filterSigns('all')">All Signs</button>
-                    <button class="category-btn" onclick="filterSigns('warning')">Warning</button>
-                    <button class="category-btn" onclick="filterSigns('regulatory')">Regulatory</button>
-                    <button class="category-btn" onclick="filterSigns('information')">Information</button>
+                    <button class="category-btn active" onclick="filterSigns('all', event)">All Signs</button>
+                    <button class="category-btn" onclick="filterSigns('warning', event)">Warning</button>
+                    <button class="category-btn" onclick="filterSigns('regulatory', event)">Regulatory</button>
+                    <button class="category-btn" onclick="filterSigns('information', event)">Information</button>
                 </div>
                 <div id="signs-grid" class="signs-grid">
                     <!-- Signs will be populated by JavaScript -->

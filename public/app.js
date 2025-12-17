@@ -421,13 +421,15 @@ function loadRoadSigns() {
     });
 }
 
-function filterSigns(category) {
+function filterSigns(category, event) {
     const signs = document.querySelectorAll('.sign-card');
     const buttons = document.querySelectorAll('.category-btn');
 
     // Update active button
     buttons.forEach(btn => btn.classList.remove('active'));
-    event.target.classList.add('active');
+    if (event && event.target) {
+        event.target.classList.add('active');
+    }
 
     // Filter signs
     signs.forEach(sign => {
