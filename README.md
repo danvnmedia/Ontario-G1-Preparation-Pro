@@ -63,16 +63,18 @@ npm start
 
 ```
 Ontario-G1-Preparation-Pro/
-├── src/                    # Source files
-│   ├── js/                # JavaScript files
-│   ├── css/               # Stylesheets
-│   └── data/              # Question and content data
-├── public/                # Static assets
-│   ├── images/            # Road signs and images
-│   └── index.html         # Main HTML file
-├── docs/                  # Documentation
-├── README.md              # This file
-└── package.json           # Project dependencies
+├── public/                # Static files served by the web server
+│   ├── index.html        # Main HTML file
+│   ├── styles.css        # Stylesheet
+│   ├── app.js            # JavaScript application
+│   └── images/           # Road signs and images
+├── src/                  # Additional source files
+│   └── data/             # Question and content data
+├── docs/                 # Documentation
+├── README.md             # This file
+├── CONTRIBUTING.md       # Contribution guidelines
+├── LICENSE               # MIT License
+└── package.json          # Project dependencies
 ```
 
 ## 🤝 Contributing
